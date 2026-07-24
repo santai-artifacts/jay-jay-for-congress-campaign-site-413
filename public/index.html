@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jay for Congress · Connecticut's 4th District · 2028</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:    #0a1f44;
+      --navy-mid:#1a3463;
+      --red:     #c8102e;
+      --red-dark:#9b0c22;
+      --cream:   #f8f5f0;
+      --gray-100:#f2f2f2;
+      --gray-300:#d0d0d0;
+      --gray-600:#6b6b6b;
+      --white:   #ffffff;
+      --gold:    #d4a017;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Libre Franklin', sans-serif;
+      color: var(--navy);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    /* ── NAVIGATION ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(10, 31, 68, 0.97);
+      backdrop-filter: blur(8px);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%;
+      height: 68px;
+      border-bottom: 3px solid var(--red);
+    }
+
+    .nav-logo {
+      font-size: 1.25rem; font-weight: 900; color: var(--white);
+      letter-spacing: -0.02em; text-decoration: none;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .nav-logo .star { color: var(--red); font-size: 1.4rem; }
+
+    .nav-links {
+      display: flex; align-items: center; gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,0.85); text-decoration: none;
+      font-size: 0.9rem; font-weight: 600; letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-cta {
+      background: var(--red); color: var(--white) !important;
+      padding: 9px 20px; border-radius: 4px;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--red-dark) !important; }
+
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { display: block; width: 26px; height: 2px; background: white; border-radius: 2px; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(165deg, var(--navy) 0%, var(--navy-mid) 55%, #1a4480 100%);
+      display: flex; align-items: center;
+      padding: 100px 5% 60px;
+      position: relative; overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='30' cy='30' r='1.5' fill='rgba(255,255,255,0.06)'/%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+
+    .hero-flag-stripe {
+      position: absolute; right: 0; top: 0; bottom: 0; width: 8px;
+      background: repeating-linear-gradient(to bottom, var(--red) 0px, var(--red) 80px, var(--white) 80px, var(--white) 160px);
+    }
+
+    .hero-content {
+      max-width: 760px; position: relative; z-index: 1;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: var(--red); color: var(--white);
+      font-size: 0.75rem; font-weight: 800; letter-spacing: 0.12em;
+      text-transform: uppercase; padding: 5px 14px; border-radius: 2px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 7vw, 6rem);
+      font-weight: 900; color: var(--white);
+      line-height: 1.0; letter-spacing: -0.03em;
+      margin-bottom: 10px;
+    }
+
+    .hero h1 .accent { color: var(--red); }
+
+    .hero-subtitle {
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      font-weight: 600; color: rgba(255,255,255,0.75);
+      letter-spacing: 0.04em; text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+
+    .hero-desc {
+      font-family: 'Lora', serif;
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+      color: rgba(255,255,255,0.85); line-height: 1.75;
+      max-width: 580px; margin-bottom: 44px;
+    }
+
+    .hero-buttons {
+      display: flex; flex-wrap: wrap; gap: 14px;
+    }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 15px 32px; border-radius: 4px;
+      font-size: 1rem; font-weight: 800; letter-spacing: 0.03em;
+      text-decoration: none; border: none; cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
+    .btn:active { transform: translateY(0); }
+
+    .btn-primary { background: var(--red); color: var(--white); }
+    .btn-primary:hover { background: var(--red-dark); }
+
+    .btn-secondary {
+      background: transparent; color: var(--white);
+      border: 2px solid rgba(255,255,255,0.5);
+    }
+    .btn-secondary:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
+
+    .hero-stats {
+      display: flex; flex-wrap: wrap; gap: 40px;
+      margin-top: 64px; padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .stat-num {
+      font-size: 2.4rem; font-weight: 900; color: var(--white);
+      line-height: 1;
+    }
+    .stat-num span { color: var(--red); }
+    .stat-label {
+      font-size: 0.8rem; font-weight: 600; color: rgba(255,255,255,0.55);
+      letter-spacing: 0.08em; text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    /* ── SECTION SHARED ── */
+    section { padding: 96px 5%; }
+
+    .section-tag {
+      font-size: 0.75rem; font-weight: 800; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--red);
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900; line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+
+    .section-intro {
+      font-family: 'Lora', serif;
+      font-size: 1.15rem; color: var(--gray-600);
+      line-height: 1.8; max-width: 680px;
+    }
+
+    /* ── ABOUT ── */
+    .about { background: var(--cream); }
+
+    .about-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+      max-width: 1200px; margin: 0 auto;
+    }
+
+    .about-img-wrap {
+      position: relative;
+    }
+
+    .about-img-placeholder {
+      width: 100%; aspect-ratio: 4/5;
+      background: linear-gradient(135deg, var(--navy-mid) 0%, var(--navy) 100%);
+      border-radius: 8px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.4);
+      font-size: 1rem; font-weight: 600; text-align: center;
+      gap: 12px;
+    }
+
+    .about-img-placeholder svg { opacity: 0.3; }
+
+    .about-img-badge {
+      position: absolute; bottom: -20px; right: -20px;
+      background: var(--red); color: var(--white);
+      padding: 16px 20px; border-radius: 6px;
+      font-size: 0.85rem; font-weight: 800;
+      text-align: center; line-height: 1.3;
+      box-shadow: 0 8px 24px rgba(200, 16, 46, 0.4);
+    }
+
+    .about-text blockquote {
+      font-family: 'Lora', serif;
+      font-size: 1.35rem; font-style: italic; color: var(--navy);
+      border-left: 4px solid var(--red);
+      padding-left: 24px; margin: 32px 0;
+      line-height: 1.65;
+    }
+
+    .about-text p {
+      color: var(--gray-600); line-height: 1.8; margin-bottom: 16px;
+      font-size: 1.05rem;
+    }
+
+    .about-credentials {
+      display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px;
+    }
+
+    .credential-tag {
+      background: var(--white);
+      border: 1.5px solid var(--gray-300);
+      color: var(--navy);
+      font-size: 0.82rem; font-weight: 700;
+      padding: 7px 14px; border-radius: 3px;
+      letter-spacing: 0.02em;
+    }
+
+    /* ── ISSUES ── */
+    .issues { background: var(--white); }
+
+    .issues-header {
+      max-width: 1200px; margin: 0 auto 56px;
+    }
+
+    .issues-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px; max-width: 1200px; margin: 0 auto;
+    }
+
+    .issue-card {
+      background: var(--cream); border-radius: 8px;
+      padding: 36px 32px;
+      border-top: 4px solid transparent;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+    .issue-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(10, 31, 68, 0.1);
+      border-top-color: var(--red);
+    }
+
+    .issue-icon {
+      width: 52px; height: 52px; background: var(--navy);
+      border-radius: 10px; display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; margin-bottom: 20px;
+    }
+
+    .issue-card h3 {
+      font-size: 1.2rem; font-weight: 800; margin-bottom: 12px;
+    }
+
+    .issue-card p {
+      font-size: 0.95rem; color: var(--gray-600); line-height: 1.7;
+    }
+
+    /* ── DISTRICT ── */
+    .district { background: var(--navy); }
+
+    .district-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    }
+
+    .district h2 { color: var(--white); }
+    .district .section-tag { color: #ff6b6b; }
+    .district p { color: rgba(255,255,255,0.75); line-height: 1.8; font-size: 1.05rem; margin-bottom: 16px; }
+
+    .district-facts {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+    }
+
+    .district-fact {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px; padding: 24px 20px;
+    }
+
+    .fact-value {
+      font-size: 2rem; font-weight: 900; color: var(--white);
+      line-height: 1; margin-bottom: 6px;
+    }
+    .fact-value span { color: #ff6b6b; }
+
+    .fact-label {
+      font-size: 0.8rem; font-weight: 600; color: rgba(255,255,255,0.5);
+      letter-spacing: 0.08em; text-transform: uppercase;
+    }
+
+    /* ── VOLUNTEER BANNER ── */
+    .volunteer-banner {
+      background: var(--red);
+      padding: 80px 5%;
+      text-align: center;
+    }
+
+    .volunteer-banner h2 {
+      color: var(--white); font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 16px;
+    }
+
+    .volunteer-banner p {
+      color: rgba(255,255,255,0.85); font-size: 1.15rem;
+      max-width: 560px; margin: 0 auto 36px;
+      font-family: 'Lora', serif;
+    }
+
+    .btn-white { background: var(--white); color: var(--red); }
+    .btn-white:hover { background: var(--cream); }
+
+    .btn-outline-white {
+      background: transparent; color: var(--white);
+      border: 2px solid rgba(255,255,255,0.6);
+    }
+    .btn-outline-white:hover { background: rgba(255,255,255,0.1); border-color: var(--white); }
+
+    .banner-buttons { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #06121f;
+      color: rgba(255,255,255,0.6);
+      padding: 56px 5% 36px;
+    }
+
+    .footer-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px; margin-bottom: 48px;
+    }
+
+    .footer-brand h3 {
+      font-size: 1.3rem; font-weight: 900; color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .footer-brand p {
+      font-size: 0.9rem; line-height: 1.7;
+    }
+
+    .footer-col h4 {
+      font-size: 0.75rem; font-weight: 800; letter-spacing: 0.12em;
+      text-transform: uppercase; color: rgba(255,255,255,0.4);
+      margin-bottom: 16px;
+    }
+
+    .footer-col a {
+      display: block; color: rgba(255,255,255,0.6);
+      text-decoration: none; font-size: 0.9rem;
+      margin-bottom: 10px; transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--white); }
+
+    .footer-bottom {
+      max-width: 1200px; margin: 0 auto;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 28px;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 12px;
+      font-size: 0.8rem;
+    }
+
+    .paid-for { font-style: italic; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .about-inner, .district-inner { grid-template-columns: 1fr; gap: 48px; }
+      .about-img-badge { bottom: -12px; right: -8px; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .district-facts { grid-template-columns: 1fr; }
+      .hero-stats { gap: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="/" class="nav-logo">
+      <span class="star">★</span> Jay for Congress
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About Jay</a></li>
+      <li><a href="#issues">Issues</a></li>
+      <li><a href="#district">Our District</a></li>
+      <li><a href="/volunteer" class="nav-cta">Volunteer</a></li>
+    </ul>
+    <div class="hamburger" onclick="this.closest('nav').querySelector('.nav-links').style.display='flex'" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="hero-tag">Connecticut · 4th Congressional District · 2028</div>
+      <h1>Jay for<br><span class="accent">Congress</span></h1>
+      <p class="hero-subtitle">A Voice for Fairfield County</p>
+      <p class="hero-desc">
+        Fighting for affordable housing, clean energy, quality healthcare, and an economy that works for every family — not just the wealthy few.
+      </p>
+      <div class="hero-buttons">
+        <a href="/volunteer" class="btn btn-primary">
+          Join the Campaign &rarr;
+        </a>
+        <a href="#issues" class="btn btn-secondary">
+          Our Platform
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div>
+          <div class="stat-num">4<span>th</span></div>
+          <div class="stat-label">CT Congressional District</div>
+        </div>
+        <div>
+          <div class="stat-num">2028</div>
+          <div class="stat-label">Election Year</div>
+        </div>
+        <div>
+          <div class="stat-num">1<span>st</span></div>
+          <div class="stat-label">Priority: You</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-flag-stripe" aria-hidden="true"></div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="about-inner">
+      <div class="about-img-wrap">
+        <div class="about-img-placeholder">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="white"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+          <span>Campaign Photo<br>Coming Soon</span>
+        </div>
+        <div class="about-img-badge">
+          CT-4<br>Since Birth
+        </div>
+      </div>
+
+      <div class="about-text">
+        <p class="section-tag">About the Candidate</p>
+        <h2>Rooted in Connecticut.<br>Fighting for All of Us.</h2>
+
+        <blockquote>
+          "Fairfield County deserves a representative who shows up — at town halls, on the job site, in the hospital, and in Washington."
+        </blockquote>
+
+        <p>
+          Jay has spent his career at the intersection of community advocacy and public service in Connecticut's 4th District — from Bridgeport to Greenwich, Stamford to Norwalk.
+        </p>
+
+        <p>
+          A graduate of local public schools, Jay knows firsthand what working families in this district face: rising housing costs, stagnant wages, and healthcare that's out of reach. He's ready to bring that perspective to Washington.
+        </p>
+
+        <p>
+          Jay has spent over a decade in community organizing, labor advocacy, and local government — building coalitions across every corner of our district.
+        </p>
+
+        <div class="about-credentials">
+          <span class="credential-tag">CT Native</span>
+          <span class="credential-tag">Community Organizer</span>
+          <span class="credential-tag">Labor Advocate</span>
+          <span class="credential-tag">Public School Graduate</span>
+          <span class="credential-tag">Small Business Champion</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ISSUES -->
+  <section class="issues" id="issues">
+    <div class="issues-header">
+      <p class="section-tag">The Platform</p>
+      <h2>What Jay Will Fight For</h2>
+      <p class="section-intro">
+        A bold, practical agenda grounded in the real challenges facing Fairfield County families — with clear plans to deliver results.
+      </p>
+    </div>
+
+    <div class="issues-grid">
+      <div class="issue-card">
+        <div class="issue-icon">🏠</div>
+        <h3>Affordable Housing</h3>
+        <p>Expand federal housing vouchers, crack down on corporate landlord speculation, and fund construction of workforce housing across CT-4.</p>
+      </div>
+      <div class="issue-card">
+        <div class="issue-icon">🏥</div>
+        <h3>Healthcare for All</h3>
+        <p>Protect and expand the ACA, lower prescription drug costs, and fight for a public option so no CT family goes bankrupt from a medical bill.</p>
+      </div>
+      <div class="issue-card">
+        <div class="issue-icon">🌿</div>
+        <h3>Clean Energy Future</h3>
+        <p>Invest in offshore wind, solar, and clean transportation — creating good-paying union jobs right here in Connecticut while tackling the climate crisis.</p>
+      </div>
+      <div class="issue-card">
+        <div class="issue-icon">📚</div>
+        <h3>Education & Opportunity</h3>
+        <p>Fully fund public schools, make community college free, and expand job training so every student in our district has a path to success.</p>
+      </div>
+      <div class="issue-card">
+        <div class="issue-icon">⚖️</div>
+        <h3>Economic Fairness</h3>
+        <p>Raise the federal minimum wage, strengthen worker organizing rights, and make the ultra-wealthy pay their fair share in taxes.</p>
+      </div>
+      <div class="issue-card">
+        <div class="issue-icon">🛡️</div>
+        <h3>Public Safety</h3>
+        <p>Invest in community policing, mental health crisis response, and common-sense gun safety legislation that protects our families.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DISTRICT -->
+  <section class="district" id="district">
+    <div class="district-inner">
+      <div>
+        <p class="section-tag">Our District</p>
+        <h2>CT's 4th Congressional District</h2>
+        <p>
+          Spanning the communities of southwestern Connecticut — from urban Bridgeport to coastal Greenwich — the 4th District is one of the most economically diverse in New England.
+        </p>
+        <p>
+          That diversity is our strength. Jay will represent every community: the factory worker in Bridgeport, the teacher in Norwalk, the small business owner in Stamford, and the family in Shelton.
+        </p>
+        <a href="/volunteer" class="btn btn-primary" style="margin-top: 20px;">Get Involved</a>
+      </div>
+
+      <div class="district-facts">
+        <div class="district-fact">
+          <div class="fact-value">~750<span>K</span></div>
+          <div class="fact-label">Constituents</div>
+        </div>
+        <div class="district-fact">
+          <div class="fact-value">10<span>+</span></div>
+          <div class="fact-label">Communities</div>
+        </div>
+        <div class="district-fact">
+          <div class="fact-value">SW</div>
+          <div class="fact-label">Connecticut</div>
+        </div>
+        <div class="district-fact">
+          <div class="fact-value">2028</div>
+          <div class="fact-label">Election</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VOLUNTEER BANNER -->
+  <section class="volunteer-banner">
+    <h2>Ready to Make a Difference?</h2>
+    <p>
+      Change doesn't happen in Washington — it starts right here, with neighbors helping neighbors build the campaign.
+    </p>
+    <div class="banner-buttons">
+      <a href="/volunteer" class="btn btn-white">Sign Up to Volunteer</a>
+      <a href="#issues" class="btn btn-outline-white">Learn More</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>★ Jay for Congress 2028</h3>
+        <p>Fighting for Connecticut's 4th Congressional District — Fairfield County deserves a champion in Washington.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Campaign</h4>
+        <a href="#about">About Jay</a>
+        <a href="#issues">Our Platform</a>
+        <a href="#district">The District</a>
+        <a href="/volunteer">Volunteer</a>
+      </div>
+      <div class="footer-col">
+        <h4>Issues</h4>
+        <a href="#issues">Housing</a>
+        <a href="#issues">Healthcare</a>
+        <a href="#issues">Clean Energy</a>
+        <a href="#issues">Education</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="/volunteer">Join Us</a>
+        <a href="#about">About</a>
+        <a href="#issues">Platform</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="paid-for">Paid for by Jay for Congress 2028 · Connecticut 4th District</p>
+      <p>&copy; 2028 Jay for Congress. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

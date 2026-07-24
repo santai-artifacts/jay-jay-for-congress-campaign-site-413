@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Volunteer · Jay for Congress 2028 · CT-4</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:    #0a1f44;
+      --navy-mid:#1a3463;
+      --red:     #c8102e;
+      --red-dark:#9b0c22;
+      --cream:   #f8f5f0;
+      --gray-100:#f5f5f5;
+      --gray-200:#ebebeb;
+      --gray-300:#d0d0d0;
+      --gray-400:#b0b0b0;
+      --gray-600:#6b6b6b;
+      --white:   #ffffff;
+      --green:   #1a7a4a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Libre Franklin', sans-serif;
+      color: var(--navy);
+      background: var(--cream);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ── NAVIGATION ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(10, 31, 68, 0.97);
+      backdrop-filter: blur(8px);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%;
+      height: 68px;
+      border-bottom: 3px solid var(--red);
+    }
+
+    .nav-logo {
+      font-size: 1.25rem; font-weight: 900; color: var(--white);
+      letter-spacing: -0.02em; text-decoration: none;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .nav-logo .star { color: var(--red); font-size: 1.4rem; }
+
+    .nav-links {
+      display: flex; align-items: center; gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,0.85); text-decoration: none;
+      font-size: 0.9rem; font-weight: 600; letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a.active { color: var(--white); }
+
+    .nav-cta {
+      background: var(--red); color: var(--white) !important;
+      padding: 9px 20px; border-radius: 4px;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--red-dark) !important; }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+    }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      padding: 140px 5% 80px;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+
+    .page-header::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='30' cy='30' r='1.5' fill='rgba(255,255,255,0.06)'/%3E%3C/svg%3E");
+    }
+
+    .page-header-tag {
+      display: inline-block; position: relative;
+      background: var(--red); color: var(--white);
+      font-size: 0.75rem; font-weight: 800; letter-spacing: 0.12em;
+      text-transform: uppercase; padding: 5px 14px; border-radius: 2px;
+      margin-bottom: 20px;
+    }
+
+    .page-header h1 {
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 900; color: var(--white);
+      line-height: 1.05; letter-spacing: -0.03em;
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    .page-header p {
+      font-family: 'Lora', serif;
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: rgba(255,255,255,0.78);
+      max-width: 560px; margin: 0 auto;
+      position: relative;
+    }
+
+    /* ── MAIN LAYOUT ── */
+    .main-wrap {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 380px;
+      gap: 48px; padding: 72px 5% 96px;
+      align-items: start;
+    }
+
+    /* ── FORM ── */
+    .form-card {
+      background: var(--white);
+      border-radius: 12px;
+      box-shadow: 0 4px 40px rgba(10,31,68,0.08);
+      padding: 48px 44px;
+    }
+
+    .form-card h2 {
+      font-size: 1.75rem; font-weight: 900;
+      margin-bottom: 6px;
+    }
+
+    .form-card .form-subtitle {
+      color: var(--gray-600); font-size: 0.95rem;
+      margin-bottom: 36px;
+    }
+
+    .form-section-title {
+      font-size: 0.72rem; font-weight: 800; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--red);
+      margin: 28px 0 16px; padding-top: 28px;
+      border-top: 1.5px solid var(--gray-200);
+    }
+    .form-section-title:first-of-type { border-top: none; margin-top: 0; padding-top: 0; }
+
+    .form-row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+      margin-bottom: 0;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-size: 0.82rem; font-weight: 700;
+      color: var(--navy); letter-spacing: 0.02em;
+      margin-bottom: 7px;
+    }
+
+    label .optional {
+      font-weight: 500; color: var(--gray-400); margin-left: 4px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+      width: 100%;
+      padding: 12px 14px;
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: 0.95rem;
+      color: var(--navy);
+      background: var(--gray-100);
+      border: 1.5px solid var(--gray-200);
+      border-radius: 6px;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+      appearance: none;
+    }
+
+    input:focus, textarea:focus {
+      background: var(--white);
+      border-color: var(--navy);
+      box-shadow: 0 0 0 3px rgba(10,31,68,0.08);
+    }
+
+    input.error, textarea.error {
+      border-color: var(--red);
+      background: #fff8f8;
+    }
+
+    .field-error {
+      font-size: 0.78rem; color: var(--red);
+      margin-top: 5px; display: none;
+    }
+    .field-error.visible { display: block; }
+
+    textarea { resize: vertical; min-height: 100px; }
+
+    /* ── CHECKBOXES ── */
+    .interests-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+    }
+
+    .interest-opt {
+      display: flex; align-items: center; gap: 10px;
+      padding: 12px 14px;
+      background: var(--gray-100);
+      border: 1.5px solid var(--gray-200);
+      border-radius: 6px; cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      user-select: none;
+    }
+
+    .interest-opt:hover { border-color: var(--navy-mid); background: white; }
+
+    .interest-opt input[type="checkbox"] {
+      width: 17px; height: 17px;
+      flex-shrink: 0; cursor: pointer;
+      accent-color: var(--red);
+      border-radius: 3px;
+    }
+
+    .interest-opt span {
+      font-size: 0.85rem; font-weight: 600; color: var(--navy);
+    }
+
+    .interest-opt:has(input:checked) {
+      border-color: var(--red);
+      background: #fff5f6;
+    }
+
+    /* ── SUBMIT ── */
+    .btn-submit {
+      width: 100%; padding: 16px;
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: 1.05rem; font-weight: 800; letter-spacing: 0.02em;
+      background: var(--red); color: var(--white);
+      border: none; border-radius: 6px; cursor: pointer;
+      margin-top: 8px;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.15s;
+    }
+    .btn-submit:hover {
+      background: var(--red-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(200,16,46,0.35);
+    }
+    .btn-submit:active { transform: translateY(0); }
+    .btn-submit:disabled {
+      background: var(--gray-400); cursor: not-allowed;
+      transform: none; box-shadow: none;
+    }
+
+    /* ── SUCCESS STATE ── */
+    .success-state {
+      display: none; text-align: center; padding: 48px 24px;
+    }
+    .success-state.visible { display: block; }
+    .success-state .check-circle {
+      width: 72px; height: 72px; background: var(--green);
+      border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;
+      font-size: 2rem; margin-bottom: 24px;
+    }
+    .success-state h3 { font-size: 1.6rem; font-weight: 900; margin-bottom: 12px; }
+    .success-state p { color: var(--gray-600); line-height: 1.7; margin-bottom: 24px; }
+    .success-state a {
+      display: inline-block;
+      background: var(--navy); color: white;
+      padding: 12px 28px; border-radius: 4px;
+      text-decoration: none; font-weight: 700; font-size: 0.9rem;
+    }
+
+    /* ── SIDEBAR ── */
+    .sidebar { display: flex; flex-direction: column; gap: 24px; }
+
+    .sidebar-card {
+      background: var(--white);
+      border-radius: 10px; padding: 28px 24px;
+      box-shadow: 0 2px 20px rgba(10,31,68,0.06);
+    }
+
+    .sidebar-card.navy { background: var(--navy); }
+    .sidebar-card.red { background: var(--red); }
+
+    .sidebar-card h3 {
+      font-size: 1.05rem; font-weight: 900;
+      margin-bottom: 12px; color: var(--navy);
+    }
+    .sidebar-card.navy h3, .sidebar-card.red h3 { color: var(--white); }
+
+    .sidebar-card p {
+      font-size: 0.9rem; color: var(--gray-600); line-height: 1.65;
+    }
+    .sidebar-card.navy p, .sidebar-card.red p { color: rgba(255,255,255,0.78); }
+
+    .sidebar-ways {
+      list-style: none; margin-top: 16px;
+    }
+    .sidebar-ways li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 0.88rem; color: var(--gray-600);
+      margin-bottom: 12px; padding-bottom: 12px;
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .sidebar-ways li:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .sidebar-ways li .icon { flex-shrink: 0; font-size: 1.1rem; margin-top: 1px; }
+    .sidebar-ways li strong { color: var(--navy); display: block; font-size: 0.88rem; }
+
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: var(--navy-mid); text-decoration: none; font-size: 0.88rem; font-weight: 600;
+      padding: 8px 0;
+    }
+    .back-link:hover { color: var(--red); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      .main-wrap { grid-template-columns: 1fr; gap: 32px; }
+      .sidebar { display: grid; grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 560px) {
+      .form-card { padding: 28px 20px; }
+      .form-row { grid-template-columns: 1fr; }
+      .interests-grid { grid-template-columns: 1fr; }
+      .sidebar { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="/" class="nav-logo">
+      <span class="star">★</span> Jay for Congress
+    </a>
+    <ul class="nav-links">
+      <li><a href="/#about">About Jay</a></li>
+      <li><a href="/#issues">Issues</a></li>
+      <li><a href="/#district">Our District</a></li>
+      <li><a href="/volunteer" class="nav-cta active">Volunteer</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="page-header-tag">Get Involved</div>
+    <h1>Volunteer for Jay</h1>
+    <p>
+      Every great campaign is built by people who believe in something. Join ours — and help make history in CT-4.
+    </p>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="main-wrap">
+
+    <!-- FORM -->
+    <div>
+      <a href="/" class="back-link">&larr; Back to Campaign Home</a>
+      <div class="form-card" style="margin-top: 20px;">
+
+        <!-- Form itself -->
+        <div id="form-view">
+          <h2>Sign Up to Volunteer</h2>
+          <p class="form-subtitle">Fill out the form below and our team will reach out with next steps.</p>
+
+          <form id="volunteer-form" novalidate>
+
+            <p class="form-section-title">Your Information</p>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="first_name">First Name</label>
+                <input type="text" id="first_name" name="first_name" placeholder="Jane" autocomplete="given-name" />
+                <div class="field-error" id="first_name-err">Please enter your first name.</div>
+              </div>
+              <div class="form-group">
+                <label for="last_name">Last Name</label>
+                <input type="text" id="last_name" name="last_name" placeholder="Smith" autocomplete="family-name" />
+                <div class="field-error" id="last_name-err">Please enter your last name.</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="jane@example.com" autocomplete="email" />
+              <div class="field-error" id="email-err">Please enter a valid email address.</div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone">Phone <span class="optional">(optional)</span></label>
+                <input type="tel" id="phone" name="phone" placeholder="(203) 555-0100" autocomplete="tel" />
+              </div>
+              <div class="form-group">
+                <label for="zip_code">ZIP Code <span class="optional">(optional)</span></label>
+                <input type="text" id="zip_code" name="zip_code" placeholder="06901" maxlength="10" autocomplete="postal-code" />
+              </div>
+            </div>
+
+            <p class="form-section-title">How Would You Like to Help?</p>
+
+            <div class="interests-grid">
+              <label class="interest-opt">
+                <input type="checkbox" name="interests" value="Canvassing" />
+                <span>🚶 Canvassing</span>
+              </label>
+              <label class="interest-opt">
+                <input type="checkbox" name="interests" value="Phone Banking" />
+                <span>📞 Phone Banking</span>
+              </label>
+              <label class="interest-opt">
+                <input type="checkbox" name="interests" value="Text Banking" />
+                <span>💬 Text Banking</span>
+              </label>
+              <label class="interest-opt">
+                <input type="checkbox" name="interests" value="Event Hosting" />
+                <span>🏡 Host an Event</span>
+              </label>
+              <label class="interest-opt">
+                <input type="checkbox" name="interests" value="Social Media" />
+                <span>📱 Social Media</span>
+              </label>
+              <label class="interest-opt">
+                <input type="checkbox" name="interests" value="Data Entry" />
+                <span>💻 Data & Admin</span>
+              </label>
+              <label class="interest-opt">
+                <input type="checkbox" name="interests" value="Yard Sign" />
+                <span>🪧 Yard Sign</span>
+              </label>
+              <label class="interest-opt">
+                <input type="checkbox" name="interests" value="Donate" />
+                <span>💛 Donate</span>
+              </label>
+            </div>
+
+            <p class="form-section-title">Anything Else?</p>
+
+            <div class="form-group">
+              <label for="message">Message <span class="optional">(optional)</span></label>
+              <textarea id="message" name="message" placeholder="Tell us about yourself or any specific skills you'd like to bring to the campaign..."></textarea>
+            </div>
+
+            <div id="global-error" style="display:none; background:#fff0f2; border:1.5px solid var(--red); color: var(--red); padding: 12px 16px; border-radius: 6px; font-size:0.9rem; font-weight: 600; margin-bottom: 16px;"></div>
+
+            <button type="submit" class="btn-submit" id="submit-btn">
+              Join the Campaign &rarr;
+            </button>
+          </form>
+        </div>
+
+        <!-- Success state -->
+        <div class="success-state" id="success-view">
+          <div class="check-circle">✓</div>
+          <h3>You're In — Welcome Aboard!</h3>
+          <p>
+            Thank you for signing up to volunteer for Jay's campaign! A member of our team will reach out within 48 hours with next steps.
+          </p>
+          <p style="font-size:0.9rem; color: var(--gray-400);">In the meantime, spread the word and follow us on social media.</p>
+          <br>
+          <a href="/">Back to Home</a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+      <div class="sidebar-card navy">
+        <h3>Why Volunteer?</h3>
+        <p>Elections are won by people, not money. Knocking on a neighbor's door or making a phone call changes minds — and changes outcomes.</p>
+      </div>
+
+      <div class="sidebar-card">
+        <h3>Ways to Get Involved</h3>
+        <ul class="sidebar-ways">
+          <li>
+            <span class="icon">🚶</span>
+            <div><strong>Canvass Door-to-Door</strong>Meet your neighbors, share Jay's story, and register voters.</div>
+          </li>
+          <li>
+            <span class="icon">📞</span>
+            <div><strong>Phone & Text Banking</strong>Call voters from home on your own schedule.</div>
+          </li>
+          <li>
+            <span class="icon">🏡</span>
+            <div><strong>Host a House Party</strong>Invite your community to meet Jay or watch a campaign event.</div>
+          </li>
+          <li>
+            <span class="icon">📱</span>
+            <div><strong>Social Media Outreach</strong>Share content and help us reach more CT-4 voters online.</div>
+          </li>
+          <li>
+            <span class="icon">🪧</span>
+            <div><strong>Put Up a Yard Sign</strong>Show your neighborhood you're with Jay.</div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card red">
+        <h3>Questions?</h3>
+        <p>Reach out to our volunteer coordinator — we'd love to talk about how you can plug in.</p>
+        <p style="margin-top:14px; font-weight: 800; color: white; font-size: 0.95rem;">
+          volunteer@jay2028.com
+        </p>
+      </div>
+
+    </aside>
+  </div>
+
+  <!-- FOOTER -->
+  <footer style="background:#06121f; color:rgba(255,255,255,0.5); padding: 32px 5%; text-align:center; font-size: 0.82rem;">
+    <p><em>Paid for by Jay for Congress 2028 · Connecticut 4th District</em></p>
+    <p style="margin-top: 8px;">&copy; 2028 Jay for Congress. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById('volunteer-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const globalErr = document.getElementById('global-error');
+
+    function showFieldError(id, show) {
+      const input = document.getElementById(id);
+      const err = document.getElementById(id + '-err');
+      if (!input || !err) return;
+      if (show) {
+        input.classList.add('error');
+        err.classList.add('visible');
+      } else {
+        input.classList.remove('error');
+        err.classList.remove('visible');
+      }
+    }
+
+    function validate() {
+      let ok = true;
+      const first = document.getElementById('first_name').value.trim();
+      const last  = document.getElementById('last_name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      showFieldError('first_name', !first);
+      if (!first) ok = false;
+
+      showFieldError('last_name', !last);
+      if (!last) ok = false;
+
+      showFieldError('email', !emailRe.test(email));
+      if (!emailRe.test(email)) ok = false;
+
+      return ok;
+    }
+
+    // Clear errors on input
+    ['first_name','last_name','email'].forEach(id => {
+      document.getElementById(id)?.addEventListener('input', () => showFieldError(id, false));
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      globalErr.style.display = 'none';
+
+      if (!validate()) return;
+
+      const interests = [...form.querySelectorAll('input[name="interests"]:checked')]
+        .map(cb => cb.value);
+
+      const payload = {
+        first_name: document.getElementById('first_name').value.trim(),
+        last_name:  document.getElementById('last_name').value.trim(),
+        email:      document.getElementById('email').value.trim(),
+        phone:      document.getElementById('phone').value.trim(),
+        zip_code:   document.getElementById('zip_code').value.trim(),
+        interests,
+        message:    document.getElementById('message').value.trim(),
+      };
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting…';
+
+      try {
+        const res = await fetch('/api/volunteer', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+
+        const data = await res.json();
+
+        if (data.success) {
+          document.getElementById('form-view').style.display = 'none';
+          document.getElementById('success-view').classList.add('visible');
+        } else {
+          globalErr.textContent = data.error || 'Something went wrong. Please try again.';
+          globalErr.style.display = 'block';
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Join the Campaign →';
+        }
+      } catch {
+        globalErr.textContent = 'Network error — please check your connection and try again.';
+        globalErr.style.display = 'block';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Join the Campaign →';
+      }
+    });
+  </script>
+
+</body>
+</html>
