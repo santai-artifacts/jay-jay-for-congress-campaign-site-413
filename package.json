@@ -1,0 +1,11 @@
+{
+  "name": "jay-2028-campaign",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "bun run index.ts",
+    "dev": "bun run index.ts"
+  },
+  "dependencies": {
+    "hono": "^4.7.0"
+  }
+}
