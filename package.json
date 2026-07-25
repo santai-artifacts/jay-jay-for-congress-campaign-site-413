@@ -1,11 +1,13 @@
 {
   "name": "jay-2028-campaign",
   "version": "1.0.0",
+  "type": "module",
   "scripts": {
-    "start": "bun run index.ts",
-    "dev": "bun run index.ts"
+    "start": "node index.js",
+    "dev": "node index.js"
   },
   "dependencies": {
-    "hono": "^4.7.0"
+    "express": "^4.18.2",
+    "sqlite3": "^5.1.6"
   }
 }
